@@ -14,7 +14,8 @@ section .data
 section .text
 CMAIN:
 
-    CEXTERN malloc ; tohle jsem si volal sam
+    ; TOHLE JSEM VOLAL SAM
+    CEXTERN malloc
 
     ; TOHLE BYLO UZ V KOSTRE
     push ebp
@@ -36,18 +37,13 @@ CMAIN:
     push 8 ; druhy argument
     push task22_A ; prvni argument
 
-
-    ; TOHLE BYLO V KOSTRE
+    ; TOHLE BYLO UZ V KOSTRE
     call task22
-
 
     ; TOHLE JSEM PRIDAVAL DO KOSTRY
     add esp, 12 ; uklizeni argumentu podle konvecne CDECL (pushnuli jsme 3 argumenty, tudiz ret 3*4)
 
-
-    ; process the result
-
-    ; TOHLE BYLO V KOSTRE
+    ; TOHLE BYLO UZ V KOSTRE
     mov ecx,9
     call task23
 
@@ -71,6 +67,7 @@ CMAIN:
 ; Important:
 ;   - the function does not have to preserve content of any register
 ;
+
 task21:
     ; vychazim z:
     ; for (int i = N; i > 0; i--)
@@ -208,6 +205,7 @@ task22:
 ;     - in the EAX register it returns 0 (NULL) in case of a memory allocation error,
 ;     - the function may change the content of the ECX and EDX registers.
 ;
+
 task23:
     ; vytvorim si zasobnikovy ramec
     push ebp
